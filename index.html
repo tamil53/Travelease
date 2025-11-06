@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Booking Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f4f7fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .sidebar {
+      background: #fcfbfb;
+      min-height: 100vh;
+      color: #030303;
+      border-radius: 18px;
+      padding: 32px 18px;
+    }
+    .sidebar .nav-link {
+      color: #0a0a0a;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    .sidebar .nav-link.active, .sidebar .nav-link:hover {
+      background: #4069b2;
+      color: #fff;
+    }
+    .dashboard-header {
+      padding: 24px 0 12px 0;
+    }
+    .card-summary {
+      border-radius: 18px;
+      border: none;
+      color: #fff;
+      min-height: 140px;
+      box-shadow: 0 2px 12px rgba(35,57,93,0.08);
+    }
+    .card-trains { background: #84b0fc; }
+    .card-bike { background: #a7f3fc; }
+    .card-cars { background: #fd9ba5; }
+    .card-summary .icon {
+      font-size: 2.5rem;
+      opacity: 0.8;
+    }
+    .table thead th {
+      background: #f4f7fa;
+      color: #2254a5;
+      font-weight: 600;
+      border: none;
+    }
+    .table tbody td {
+      vertical-align: middle;
+      border: none;
+      background: #fff;
+    }
+    .status-badge {
+      border-radius: 8px;
+      padding: 4px 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .status-confirmed { background: #d4edda; color: #256029; }
+    .status-pending { background: #fff3cd; color: #856404; }
+    .status-cancelled { background: #f8d7da; color: #721c24; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+     
+      <nav class="col-md-2 d-none d-md-block sidebar">
+        <div class="mb-4">
+          <h3 class="fw-bold"><i class="bi bi-globe-americas me-2"></i>Uber</h3>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.booking.com/searchresults.en-gb.html?aid=2276384&label=msn-Uuqut3Jnx8Kp0n7yFg1C2g-80333218446457%3Atikwd-80333464038898%3Aloc-90%3Aneo%3Amte%3Alp155587%3Adec%3Aqsflight%20tickets%20booking%20.com&utm_medium=cpc&utm_campaign=Hotel%20%20Italy%204&utm_term=Uuqut3Jnx8Kp0n7yFg1C2g&msclkid=1edf1a4e340a1c4d993d72aaf45f3dba&utm_source=bing&highlighted_hotels=4033334&redirected=1&city=-121873&hlrd=no_dates&source=hotel&expand_sb=1&keep_landing=1&sid=365d4c1a813586169b7ff465891b6466"><i class="bi bi-airplane me-2"></i>Flights</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.agoda.com/?site_id=1914936&tag=faf06b51-0315-4598-b600-ae4fda77c81e&msclkid=65b9e036e20c180cef6488d222e5e7ad&ds=ikbVk2CJuQmBwQ4R"><i class="bi bi-building me-2"></i>Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.carbooking.org/"><i class="bi bi-car-front me-2"></i>Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-person-circle me-2"></i>Profile</a>
+          </li>
+        </ul>
+      </nav>
+  
+      <main class="col-md-10 ms-sm-auto px-md-5">
+        <div class="dashboard-header d-flex justify-content-between align-items-center">
+          <div>
+            <h2 class="fw-bold mb-1">Welcome to our Uber Travel booking</h2>
+            <div class="text-muted">Your travel bookings at a glance</div>
+          </div>
+          <div>
+            <button class="btn btn-primary"><i class="bi bi-plus-lg"></i> New Booking</button>
+          </div>
+        </div>
+     
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="card card-summary card-trains p-4">
+              <div class="d-flex align-items-center">
+                <div class="icon me-3"></i></div>
+                <div>
+                  <div class="fs-4 fw-bold">3</div>
+                  <div>Upcoming Trains</i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-summary card-bike p-4">
+              <div class="d-flex align-items-center">
+                <div class="icon me-3"></div>
+                <div>
+                  <div class="fs-4 fw-bold">2</div>
+                  <div>Bike Rentals</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-summary card-cars p-4">
+              <div class="d-flex align-items-center">
+                <div class="icon me-3"></div>
+                <div>
+                  <div class="fs-4 fw-bold">1</div>
+                  <div>Car Rentals</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card mb-4">
+          <div class="card-header bg-white fw-bold fs-5">Recent Bookings</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Details</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><i class="text-primary me-2"></i>Metro Rail</td>
+                    <td>CMBT-Koyambed-Guindy</td>
+                    <td>12 Oct 2025</td>
+                    <td><span class="status-badge status-cancelled">Cancelled</span></td>
+                    <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><i class="bi bi-building text-info me-2"></i>Bike</td>
+                    <td>Yamaha Rx100</td>
+                    <td>13-16 Oct 2025</td>
+                    <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                    <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><i class="bi bi-car-front text-danger me-2"></i>Car</td>
+                    <td>Ford Focus (Avis)</td>
+                    <td>13-16 Oct 2025</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                    <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><i class="bi bi-airplane text-primary me-2"></i>Metro Rail</td>
+                    <td>Guindy-T.Nagar</td>
+                    <td>17 Oct 2025</td>
+                    <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                    <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
